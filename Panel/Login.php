@@ -22,8 +22,11 @@ $title='Panel | Logowanie:';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
+    <head>
+        
+    </head>
 <?php
-require_once '../Styl/head.php';
+require_once '../Styl/Header.php';
 ?>
 <div class="container-fluid p-0">
     <div class="container py-5">
@@ -54,3 +57,7 @@ require_once '../Styl/head.php';
         </div>
     </div>
 </div>
+
+<?php
+    require_once '../Styl/footer.php';
+?>
