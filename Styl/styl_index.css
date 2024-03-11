@@ -1,0 +1,12 @@
+body
+{
+    display: flex;
+}
+main{
+    display: flex;
+    align-items: center;
+    height: 85%;
+    width: 50%;
+    color: black;
+}
+
