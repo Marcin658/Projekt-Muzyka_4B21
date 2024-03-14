@@ -23,20 +23,17 @@ require_once '../Baza Danych/db.php';
     </head_section>
     <section>
         <div class="con">
+            <?php
+                $zap3 = "SELECT * From wykonawcy";
 
+                $db = mysqli_connect('127.0.0.1','root','','muzyka');
+                $wyn3 = mysqli_query($db, $zap3);
+                while($wier3 = mysqli_fetch_row($wyn3)){
+                echo "<li> $wier3[0]  $wier3[1] </li>";}
+        ?>
         </div>
     </section>
 </main>
-<aside>
-    <div class="lew">
-
-    </div>
-    <div class="praw">
-
-    </div>  
-</aside>
-<?php
-    require_once '../Styl/footer.php';
-?>
+    
 </body>
 </html>

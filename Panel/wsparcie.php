@@ -9,9 +9,9 @@
     <?php
         require_once '../Styl/Header.php';
     ?>
-    
+    <p>Projekt powstał z inicjatywy</p>
     <?php
-    require_once '../Styl/footer.php';
-?>
+        require_once '../Styl/footer.php';
+    ?>
 </body>
 </html>

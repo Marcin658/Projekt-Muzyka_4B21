@@ -23,20 +23,18 @@ require_once '../Baza Danych/db.php';
     </head_section>
     <section>
         <div class="con">
+            <?php
+                $zap2 = "SELECT * From album";
+                
+                $db = mysqli_connect('127.0.0.1','root','','muzyka');
+                $wyn2 = mysqli_query($db, $zap2);
+                while($wier2 = mysqli_fetch_row($wyn2)){
+                echo "<li> $wier2[0]  $wier2[1] </li>";}
+            ?>
 
         </div>
     </section>
 </main>
-<aside>
-    <div class="lew">
-
-    </div>
-    <div class="praw">
-
-    </div>  
-</aside>
-<?php
-    require_once '../Styl/footer.php';
-?>
+    
 </body>
 </html>

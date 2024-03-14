@@ -27,16 +27,21 @@ require_once '../Baza Danych/db.php';
         </div>
     </section>
 </main>
-<aside>
-    <div class="lew">
+    <section>
+        <div class="con">
+            <?php
+                $zap1 = "SELECT * From utwory";
+                
+                $db = mysqli_connect('127.0.0.1','root','','muzyka');
+                $wyn = mysqli_query($db, $zap1);
+                while($wier1 = mysqli_fetch_row($wyn)){
+                echo "<li> $wier1[0]  $wier1[1] </li>";
+                }
+            ?>
+        </div>
+    </section>
+</main>
 
-    </div>
-    <div class="praw">
-
-    </div>  
-</aside>
-<?php
-    require_once '../Styl/footer.php';
-?>
+    
 </body>
 </html>
