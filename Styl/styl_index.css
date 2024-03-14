@@ -1,12 +1,46 @@
 body
 {
     display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
 }
 main{
     display: flex;
-    align-items: center;
     height: 85%;
     width: 50%;
     color: black;
 }
 
+.con
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    
+}
+:link 
+    {
+        color: #EAC100;
+    }
+li 
+    {
+        text-decoration: none;
+        align-items: center; 
+        justify-content: flex-end;
+    }
+li:hover
+    {
+        color: lightseagreen;
+        text-shadow:0 0 6px #DEE1EC;
+    }
+
+head_section{
+    display: flex;
+    align-items: center;
+    align-self: start;
+    width: 100%;
+    height: 5%;
+    background-color: blanchedalmond;
+    gap: 10px;
+}

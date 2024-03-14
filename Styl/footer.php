@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-<p>&copy;</p>
+<p>Stronę Wykonał Marcin Szawerda &copy;</p>
 </body>
 </html>
