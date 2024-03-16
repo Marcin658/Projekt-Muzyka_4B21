@@ -1,0 +1,15 @@
+zap1 = "SELECT * From utwory";
+zap2 = "SELECT * From album";
+zap3 = "SELECT * From wykonawcy";
+zap4 = "SELECT 
+    Utwory.czas / 60 AS dlugosc_minuty, 
+    Wykonawcy.wykonawca, 
+    Albumy.nazwa_albumu 
+FROM 
+    Utwory 
+JOIN 
+    Wykonawcy ON Utwory.id_wykonawcy = Wykonawcy.id 
+JOIN 
+    Albumy ON Utwory.id_albumu = Albumy.id;
+zap5 = "SELECT * From album";
+zap6 = "SELECT * From wykonawcy";
