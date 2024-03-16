@@ -9,7 +9,7 @@
     <?php
         require_once '../Styl/Header.php';
     ?>
-    <p>Projekt powstał z inicjatywy</p>
+    <p>Projekt powstał z inicjatywy Marcina Szawerdy</p>
     <?php
         require_once '../Styl/footer.php';
     ?>

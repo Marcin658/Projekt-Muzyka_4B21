@@ -8,7 +8,7 @@ require_once '../Baza Danych/db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styl/styl_index.css">
+    <link rel="stylesheet" href="../Styl/styl_panel.css">
     <title>Muzyka</title>
 </head>
 <body>
@@ -23,12 +23,6 @@ require_once '../Baza Danych/db.php';
     </head_section>
     <section>
         <div class="con">
-
-        </div>
-    </section>
-</main>
-    <section>
-        <div class="con">
             <?php
                 $zap1 = "SELECT * From utwory";
                 
@@ -38,10 +32,15 @@ require_once '../Baza Danych/db.php';
                 echo "<li> $wier1[0]  $wier1[1] </li>";
                 }
             ?>
+            <?php
+                //require '../Dodatki/info.php';
+            ?>
         </div>
     </section>
 </main>
-
+<?php
+        require_once '../Styl/footer.php';
+    ?>
     
 </body>
 </html>
