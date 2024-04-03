@@ -1,8 +1,10 @@
-
-body
+footer
 {
-    height: 5%;
+    height: 3vh;
     width: 100%;
-    border: solid black;
-    background-color: gray;
+    background-color: #DEE1EC;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
 }
