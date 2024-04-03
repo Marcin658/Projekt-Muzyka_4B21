@@ -8,12 +8,12 @@ require_once '../Baza Danych/db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styl/styl_panel.css">
-    <title>Muzyka</title>
+    <link rel="stylesheet" href="../Styl/panel.css">
+    <title>MWN | Muzyka</title>
 </head>
 <body>
 <?php
-    require_once '../Styl/Header.php';
+    require_once '../Dodatki/Header.php';
 ?>
 <main>
     <head_section>
@@ -22,14 +22,15 @@ require_once '../Baza Danych/db.php';
         <a href="Wykonawcy.php">Wykonawcy</a>
     </head_section>
     <section>
-        <div class="con">
+        <div class="con4">
             <?php
-                $zap2 = "SELECT * From album";
+                $zap2 = "SELECT * From wykonawcy";
                 
                 $db = mysqli_connect('127.0.0.1','root','','muzyka');
                 $wyn2 = mysqli_query($db, $zap2);
                 while($wier2 = mysqli_fetch_row($wyn2)){
-                echo "<li> $wier2[0]  $wier2[1] </li>";}
+                echo "<div class='link'><li> $wier2[0].  $wier2[1] $wier2[2] </li></div>";}
+                mysqli_set_charset ( $db , "utf8" );
             ?>
             <?php
                 //require '../Dodatki/info.php';
@@ -37,8 +38,10 @@ require_once '../Baza Danych/db.php';
         </div>
     </section>
 </main>
+<footer>
     <?php
-        require_once '../Styl/footer.php';
+        require_once '../Dodatki/footer.php';
     ?>
+</footer>
 </body>
 </html>
