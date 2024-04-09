@@ -1,3 +1,4 @@
+/*
 body {
     display: flex;
     flex-direction: column;
@@ -8,7 +9,7 @@ body {
 header {
     display: flex;
     background-color: #45EBA5;
-    color: #163A5F;
+    justify-content: space-between;
     width: 100%;
     height: 15vh;
     font-family: 'OCR A Std', monospace;
@@ -48,9 +49,92 @@ header {
     list-style: none;
     gap: 15px;
     justify-content: flex-end;
+    align-items: center;
 }
 
 a
 {
     text-decoration: none;
+}
+
+.przycisk {
+    background-color: #163A5F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pasek li a {
+    color: #163A5F;
+}
+*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    background-color: #45EBA5;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'OCR A Std', monospace;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+#Nazwa {
+    display: flex;
+    color: #163A5F;
+    gap: 15px;
+    align-items: center; 
+}
+
+#Nazwa a:visited {
+    color: #21ABA5;
+}
+
+#Nazwa a:link {
+    color: #1D566E;
+    text-decoration: none;
+}
+
+#Nazwa a {
+    align-items: center; 
+    justify-content: flex-end;
+}
+
+#Nazwa a:hover {
+    color: lightseagreen;
+    text-shadow: 0 0 6px #DEE1EC;
+}
+
+#pasek {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding-left: 0; /* Usunięcie domyślnego wcięcia dla listy */
+}
+
+#pasek li {
+    display: inline; /* Umieszczenie elementów listy w jednej linii */
+}
+
+.przycisk {
+    background-color: #163A5F;
+    color: white; /* Zmiana koloru tekstu na biały */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header img {
+    margin-right: 5px; /* Ustawienie marginesu od prawej strony grafiki */
 }
