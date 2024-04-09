@@ -20,12 +20,6 @@
 
 <div id="informacje">
     <?php 
-        $zap4 = "SELECT Tytul,     CONCAT(
-            LPAD(FLOOR(dlugosc / 60), 2, '0'), 
-            ':', 
-            LPAD(dlugosc % 60, 2, '0')
-        ) FROM utwory"; 
-    
         $db = mysqli_connect('127.0.0.1','root','','muzyka');
         $wyn4 = mysqli_query($db, $zap4);
         while($wier4 = mysqli_fetch_row($wyn4))
