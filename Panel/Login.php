@@ -1,115 +1,45 @@
-
 <?php
-/*
-session_start();
+    session_start();
+    require_once '../Baza Danych/db.php';
+    require_once '../Dodatki/cookie.php';
+    if(isset($_POST['login'])) 
+        {
+            include '../Baza Danych/db.php';
 
-if(isset($_SESSION['admin_name'])){
-    header('Location: ./');
-    die();
-}
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $password = mysqli_real_escape_string($conn, $_POST['pass']);
 
-if(isset($_POST['login'], $_POST['username'], $_POST['pass'])){
-    include '../Baza Danych/db.php';
+            $query = "SELECT Nazwa_Uzytkownika, Haslo FROM uzytkownicy WHERE Nazwa_Uzytkownika = '$username'";
+            $result = mysqli_query($conn, $query);
 
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
+            if($result) 
+                {
+                    $row = mysqli_fetch_assoc($result);
+                    $hashed_password = $row['Haslo'];
 
+                    if (password_verify($password, $hashed_password)) 
+                        {
+                            $_SESSION['user_id'] = $row['Id_Uzytkownika'];
+                            $_SESSION['loggedin'] = true;
+                            $_SESSION['username'] = $username;
+                            header('Location: Użytkownik.php');
+                            exit;
+                        } 
+                    else 
+                        {
+                            echo "Nieprawidłowe hasło!";
+                        }
+                } 
+            else 
+                {
+                    echo "Błąd w zapytaniu do bazy danych: " . mysqli_error($conn);
+                }
 
-}
-
-
-
-$title='Panel | Logowanie:';
-
-?>
-<!DOCTYPE html>
-<html lang="pl">
-    <head>
-        <title>Login</title>
-    </head>
-<?php
-require_once '../Dodatki/Header.php';
-?>
-<div class="container-fluid p-0">
-    <div class="container py-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-12 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Zaloguj się do strony</h1>
-                        <!--<?= hash('sha256', 'admin') ?>-->
-                    </div>
-                    <div class="card-body">
-                        <form method="post">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Login</label>
-                                <input type="text" class="form-control" id="username" name="username" required autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                                <label for="pass" class="form-label">Hasło</label>
-                                <input type="password" class="form-control" id="pass" name="pass" required autocomplete="off">
-                            </div>
-                            <button type="submit" class="btn btn-primary" name="login">
-                                <a>Zaloguj się</a>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <?php
-        require_once '../Dodatki/footer.php';
-    ?>
-</footer>
-
-*/
-?>
-<?php
-
-session_start();
-
-if(isset($_SESSION['admin_name'])){
-    header('Location: ./Użytkownik');
-    die();
-}
-
-if(isset($_POST['login'], $_POST['username'], $_POST['pass'])){
-    include '../Baza Danych/db.php';
-
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
-
-    // Sprawdź czy użytkownik istnieje w bazie danych
-    $query = "SELECT * FROM uzytkownicy WHERE Nazwa_Uzytkownika = '$username'";
-    $query1 = "SELECT * FROM uzytkownicy WHERE Haslo = '$pass'";
-    $result = mysqli_query($conn, $query);
-    $result1 = mysqli_query($conn, $query1);
-
-    if($result && mysqli_num_rows($result) == 1) {
-        $user_data = mysqli_fetch_assoc($result1);
-        // Sprawdź czy hasło się zgadza
-        if(password_verify($pass, $user_data['Haslo'])) {
-            // Dane logowania są poprawne
-            $_SESSION['admin_name'] = $username;
-            header('Location: ./');
-            die();
-        } else {
-            // Niepoprawne hasło
-            echo "Niepoprawne hasło!";
+            mysqli_close($conn);
         }
-    } else {
-        // Użytkownik nie istnieje
-        echo "Użytkownik o podanej nazwie nie istnieje!";
-    }
-}
-
-$title='Panel | Logowanie:';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <link rel="stylesheet" href="../Styl/login.css">
@@ -145,5 +75,4 @@ require_once '../Dodatki/Header.php';
         require_once '../Dodatki/footer.php';
     ?>
 </footer>
-
 

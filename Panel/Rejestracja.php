@@ -1,10 +1,7 @@
 <?php
 session_start();
-
-if(isset($_SESSION['admin_name'])){
-    header('Location: ./');
-    die();
-}
+    require_once '../Baza Danych/db.php';
+    require_once '../Dodatki/cookie.php';
 
 if(isset($_POST['login'], $_POST['username'], $_POST['pass'])){
     include '../Baza Danych/db.php';
@@ -12,27 +9,27 @@ if(isset($_POST['login'], $_POST['username'], $_POST['pass'])){
     $username = $_POST['username'];
     $pass = $_POST['pass'];
 
-
     $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
-
-
     $registration_date = date("Y-m-d");
 
+    $sql = "INSERT INTO uzytkownicy (Nazwa_Uzytkownika, Haslo, Data_Rejestracji) VALUES ('$username', '$hashed_pass', '$registration_date')";
 
-    $sql = "INSERT INTO użytkownicy (Nazwa_Uzytkownika, Haslo, Data_Rejestracji) VALUES ('$username', '$hashed_pass', '$registration_date')";
-
-
+    if(mysqli_query($conn, $sql)) {
+        echo "Użytkownik został pomyślnie dodany.";
+    } else {
+        echo "Błąd podczas dodawania użytkownika: " . mysqli_error($conn);
+    }
 
     mysqli_close($conn);
 }
 
-$title='Panel | Rejestracja:';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
-<link rel="stylesheet" href="../Styl/login.css">
 <head>
+    <meta charset="UTF-8">
     <title>MWN | Rejestracja</title>
+    <link rel="stylesheet" href="../Styl/login.css">
 </head>
 <body>
 <?php
@@ -41,7 +38,6 @@ require_once '../Dodatki/Header.php';
 <div class="karta">
     <div class="card-header">
         <h1>Zarejestruj się na stronie</h1>
-        <!--<?= hash('sha256', 'admin') ?>-->
     </div>
     <div class="card-body">
         <form method="post">
@@ -57,10 +53,10 @@ require_once '../Dodatki/Header.php';
         </form>
     </div>
 </div>
-    <footer>
-        <?php
-            require_once '../Dodatki/footer.php';
-        ?>
-    </footer>
+<footer>
+    <?php
+    require_once '../Dodatki/footer.php';
+    ?>
+</footer>
 </body>
 </html>

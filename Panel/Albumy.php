@@ -1,6 +1,19 @@
 <?php
+    session_start();
     require_once '../Baza Danych/db.php';
-    
+    require_once '../Dodatki/cookie.php';
+
+    mysqli_set_charset($conn, "utf8");
+
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
+        {
+            $uzytkownik = $_SESSION['username'];
+            require_once '../Dodatki/Login_Header.php';
+        } 
+    else 
+        {
+            require_once '../Dodatki/Header.php';
+        }
 ?>
 
 <!DOCTYPE html>
@@ -9,12 +22,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Styl/panel.css">
-        <title>MWN | Muzyka</title>
+        <title>MWN | Muzyka | <?php echo $uzytkownik; ?></title>
     </head>
     <body>
-        <?php
-            require_once '../Dodatki/Header.php';
-        ?>
         <main>
             <head_section>
                 <a href="Utwory.php">Utwory</a>
@@ -26,6 +36,7 @@
                     <?php
                         $zap3 = "SELECT * From album";
                         $db = mysqli_connect('127.0.0.1','root','','muzyka');
+                        mysqli_set_charset($conn, "utf8");
                         $wyn3 = mysqli_query($db, $zap3);
                         while($wier3 = mysqli_fetch_row($wyn3))
                         {
@@ -45,3 +56,4 @@
         </footer>
     </body>
 </html>
+

@@ -1,20 +1,29 @@
 <?php
+    session_start();
     require_once '../Baza Danych/db.php';
     require_once '../Dodatki/cookie.php';
-?>
 
+    mysqli_set_charset($conn, "utf8");
+
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
+        {
+            $uzytkownik = $_SESSION['username'];
+            require_once '../Dodatki/Login_Header.php';
+        } 
+    else 
+        {
+            require_once '../Dodatki/Header.php';
+        }
+?>
 <!DOCTYPE html>
 <html lang="pl">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Styl/panel.css">
-        <title>Muzyka Wśród Nas</title>
+        <title>Muzyka Wśród Nas | <?php echo $uzytkownik; ?></title>
     </head>
     <body>
-        <?php
-            require_once '../Dodatki/Header.php';
-        ?>
         <main>
             <head_section>
                 <a href="Utwory.php">Utwory</a>
@@ -35,3 +44,4 @@
         </footer>
     </body>
 </html>
+
