@@ -15,6 +15,7 @@
                 <li><a href="Index.php">Strona Główna</a></li>
                 <li><a href="wsparcie.php">Wsparcie</a></li>
                 <li><a href="Użytkownik.php">Strona użytkownika</a></li>
+                <li><a href="Ustawienia.php">Ustawienia Administratora</a></li>
             </ul>
         </nav>
         <button class="przycisk"><a href="logout.php">Wyloguj</a></button>

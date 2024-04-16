@@ -1,3 +1,7 @@
+<?php
+require_once '../Baza Danych/db.php';
+mysqli_set_charset($conn, "utf8");
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -20,8 +24,7 @@
 
 <div id="informacje">
     <?php 
-        $db = mysqli_connect('127.0.0.1','root','','muzyka');
-        $wyn4 = mysqli_query($db, $zap4);
+        $wyn4 = mysqli_query($conn, $zap4);
         while($wier4 = mysqli_fetch_row($wyn4))
         {
             echo "<li> $wier4[0] $wier4[1] </li>";
