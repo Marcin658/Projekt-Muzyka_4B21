@@ -3,7 +3,7 @@
     require_once '../Baza Danych/db.php';
     require_once '../Dodatki/cookie.php';
 
-    mysqli_set_charset($conn, "utf8");
+    $conn->set_charset("utf8");
 
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
         {
@@ -35,9 +35,7 @@
                 <div class="con5">
                     <?php
                         $zap3 = "SELECT * From album";
-                        $db = mysqli_connect('127.0.0.1','root','','muzyka');
-                        mysqli_set_charset($conn, "utf8");
-                        $wyn3 = mysqli_query($db, $zap3);
+                        $wyn3 = mysqli_query($conn, $zap3);
                         while($wier3 = mysqli_fetch_row($wyn3))
                         {
                             echo "<div class='link'><li> $wier3[0].  $wier3[1] </li></div>";

@@ -49,7 +49,7 @@ require_once '../Dodatki/Header.php';
                 <label for="pass" class="form-label">Hasło</label>
                 <input type="password" class="form-control" id="pass" name="pass" required autocomplete="off">
             </div>
-            <button type="submit" class="btn btn-primary" name="login">Utwórz konto</button>
+            <button type="submit" class="btn btn-primary" name="login"><a href="Login.php">Utwórz konto</a></button>
         </form>
     </div>
 </div>

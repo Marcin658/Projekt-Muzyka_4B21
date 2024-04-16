@@ -3,7 +3,7 @@ session_start();
     require_once '../Dodatki/cookie.php';
 require_once '../Baza Danych/db.php';
 
-mysqli_set_charset($conn, "utf8");
+$conn->set_charset("utf8");
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $uzytkownik = $_SESSION['username'];
@@ -31,13 +31,9 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         <div class="con4">
             <?php
                 $zap2 = "SELECT * From wykonawcy";
-                
-                $db = mysqli_connect('127.0.0.1','root','','muzyka');
-                mysqli_set_charset($conn, "utf8");
-                $wyn2 = mysqli_query($db, $zap2);
+                $wyn2 = mysqli_query($conn, $zap2);
                 while($wier2 = mysqli_fetch_row($wyn2)){
                 echo "<div class='link'><li> $wier2[0].  $wier2[1] $wier2[2] </li></div>";}
-                mysqli_set_charset ( $db , "utf8" );
             ?>
             <?php
                 //require '../Dodatki/info.php';
