@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2024 at 09:01 PM
+-- Generation Time: Apr 16, 2024 at 11:17 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -181,6 +181,13 @@ CREATE TABLE `ulubione_utwory` (
   `Id_Utworu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Dumping data for table `ulubione_utwory`
+--
+
+INSERT INTO `ulubione_utwory` (`Id_ulub`, `Id_Uzytkownika`, `Id_Utworu`) VALUES
+(16, 21, 9);
+
 -- --------------------------------------------------------
 
 --
@@ -285,15 +292,18 @@ CREATE TABLE `uzytkownicy` (
   `Id_Uzytkownika` int(11) NOT NULL,
   `Nazwa_Uzytkownika` text NOT NULL,
   `Haslo` text NOT NULL,
-  `Data_Rejestracji` date NOT NULL
+  `Data_Rejestracji` date NOT NULL,
+  `Admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`Id_Uzytkownika`, `Nazwa_Uzytkownika`, `Haslo`, `Data_Rejestracji`) VALUES
-(1, 'admin', '$2y$10$i8.EWrxAQuQRqt.5tbEIRuPxCIYspBh2UG5ANl4mn9glzQ8NOO', '0000-00-00');
+INSERT INTO `uzytkownicy` (`Id_Uzytkownika`, `Nazwa_Uzytkownika`, `Haslo`, `Data_Rejestracji`, `Admin`) VALUES
+(1, 'admin', '$2y$10$ic.y2LSy8/gdvTO/t4bem.fKVo011r5/xPruZ6.Cmp/dMVLSkfFS.', '0000-00-00', 1),
+(2, 'muzykofan', '$2y$10$ZQL3a9tLaYrReRe6qa4a5OoueSw82eF0e374OL20/vfOQLdtuAlRS', '2024-04-10', 0),
+(21, 'user', '$2y$10$SDkR5tTPSQ204YjupCdh5eQ.oRX3CUfY2LZe.Am7Szy.AveEYmfFi', '2024-04-14', 0);
 
 -- --------------------------------------------------------
 
@@ -352,6 +362,7 @@ ALTER TABLE `gatunek_utwór`
 -- Indeksy dla tabeli `ulubione_utwory`
 --
 ALTER TABLE `ulubione_utwory`
+  ADD PRIMARY KEY (`Id_ulub`),
   ADD UNIQUE KEY `Id_ulub` (`Id_ulub`) USING BTREE,
   ADD KEY `Id_Użytkownika` (`Id_Uzytkownika`,`Id_Utworu`),
   ADD KEY `Id_Utworu` (`Id_Utworu`);
@@ -367,7 +378,8 @@ ALTER TABLE `utwory`
 -- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  ADD PRIMARY KEY (`Id_Uzytkownika`);
+  ADD PRIMARY KEY (`Id_Uzytkownika`),
+  ADD UNIQUE KEY `Admin` (`Data_Rejestracji`);
 
 --
 -- Indeksy dla tabeli `wykonawcy`
@@ -380,10 +392,16 @@ ALTER TABLE `wykonawcy`
 --
 
 --
+-- AUTO_INCREMENT for table `ulubione_utwory`
+--
+ALTER TABLE `ulubione_utwory`
+  MODIFY `Id_ulub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `Id_Uzytkownika` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Id_Uzytkownika` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
