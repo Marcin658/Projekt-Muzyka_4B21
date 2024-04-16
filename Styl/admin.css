@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+head_section 
+{
+    display: flex;
+    align-items:end;
+    width: 100%;
+    height: 2vh;
+    background-color: #163A5F;
+    gap: 10px;
+    padding: 10px;
+    text-decoration: none;
+    list-style-type: none;
+}
+head_section a 
+{
+    color: #45EBA5;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+table
+{
+    table-layout: fixed;
+    border: 2px solid black;
+}
+th
+{
+    border: 1px solid black;
+}
+td
+{
+    border: 1px solid black;
+}
+

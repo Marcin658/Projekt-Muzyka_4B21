@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    list-style-type: none;
+    text-decoration: none;
 }
 
 head_section 
@@ -14,10 +16,13 @@ head_section
     gap: 10px;
     padding: 10px;
     text-decoration: none;
+    list-style-type: none;
 }
 head_section a 
 {
     color: #45EBA5;
+    list-style-type: none;
+    text-decoration: none;
 }
 
 .con {
@@ -96,6 +101,7 @@ head_section a
     background-color: #FFFD95;
     border: 1px solid #000;
     list-style-type: none;
+    text-decoration: none;
 }
 
 .link a {
