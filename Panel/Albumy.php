@@ -5,15 +5,20 @@
 
     $conn->set_charset("utf8");
 
+
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
-        {
-            $uzytkownik = $_SESSION['username'];
+    {
+        $uzytkownik = $_SESSION['username'];
+        if ($_SESSION['user_role'] == 'Admin') {
+            require_once '../Dodatki/admin_Header.php';
+        } else {
             require_once '../Dodatki/Login_Header.php';
-        } 
-    else 
-        {
-            require_once '../Dodatki/Header.php';
         }
+    } 
+    else 
+    {
+        require_once '../Dodatki/Header.php';
+    }
 ?>
 
 <!DOCTYPE html>

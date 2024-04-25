@@ -23,6 +23,7 @@ if(isset($_POST['login']))
             $_SESSION['user_id'] = $row['Id_Uzytkownika'];
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
+            $_SESSION['user_role'] =$row[1];
 
             if($row['Admin'] == 1) {
                 header('Location: admin.php');

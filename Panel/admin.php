@@ -8,10 +8,8 @@ session_start();
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $uzytkownik = $_SESSION['username'];
-    require_once '../Dodatki/Login_Header.php';
-} else {
-    require_once '../Dodatki/Header.php';
-}
+    require_once '../Dodatki/admin_Header.php';
+} 
 
 
 ?>

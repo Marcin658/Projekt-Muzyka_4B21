@@ -3,13 +3,20 @@
     require_once '../Dodatki/cookie.php';
     session_start();
 
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
+    {
         $uzytkownik = $_SESSION['username'];
-        require_once '../Dodatki/Login_Header.php';
-    } else {
+        if ($_SESSION['user_role'] == 1) {
+            require_once '../Dodatki/admin_Header.php';
+        } else {
+            require_once '../Dodatki/Login_Header.php';
+        }
+    } 
+    else 
+    {
         require_once '../Dodatki/Header.php';
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="pl">
