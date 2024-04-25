@@ -1,4 +1,5 @@
 <?php
+/*
     $cookie_name= "STG";
     $cookie_value = "LOG";
     if(!isset($_COOKIE[$cookie_name]))
@@ -14,4 +15,5 @@
 {
     $cookie_value=$_COOKIE[$cookie_name];
 }
+*/
     ?>
