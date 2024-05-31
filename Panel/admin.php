@@ -24,11 +24,11 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 </head>
 <body>
     <main>
-        <head_section>
+        <div class = "head_section">
             <a href="Utwory.php">Utwory</a>
             <a href="Albumy.php">Albumy</a>
             <a href="Wykonawcy.php">Wykonawcy</a>
-        </head_section>
+        </div>
         <section>
             <?php
                 $userId = $_SESSION['user_id'];
@@ -50,9 +50,6 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             ?>
         </section>
     </main>
-    <?php
-        include_once '../Dodatki/footer.php'
-    ?>
 <script>
     function toggleFavorite(id) {
         var icon = document.getElementById('heart_' + id);
@@ -64,5 +61,10 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         window.location.href = "Utwory.php?id=" + id;
     }
 </script>
+<footer>
+        <?php
+            include_once '../Styl/footer.php';
+        ?>
+    </footer>
 </body>
 </html>

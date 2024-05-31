@@ -55,7 +55,7 @@ require_once '../Dodatki/Header.php';
 </div>
 <footer>
     <?php
-    require_once '../Dodatki/footer.php';
+    require_once '../Styl/footer.php';
     ?>
 </footer>
 </body>

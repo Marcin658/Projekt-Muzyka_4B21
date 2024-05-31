@@ -6,17 +6,14 @@ require_once '../Baza Danych/db.php';
 $conn->set_charset("utf8");
 
 
-if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
-{
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $uzytkownik = $_SESSION['username'];
-    if ($_SESSION['user_role'] == 'Admin') {
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
         require_once '../Dodatki/admin_Header.php';
     } else {
         require_once '../Dodatki/Login_Header.php';
     }
-} 
-else 
-{
+} else {
     require_once '../Dodatki/Header.php';
 }
 
@@ -87,9 +84,11 @@ $result = mysqli_query($conn, $sql);
             </div>
         </section>
     </main>
-    <?php 
-        require_once '../Dodatki/footer.php'; 
-    ?>
+    <footer>
+        <?php 
+            require_once '../Styl/footer.php'; 
+        ?>
+    </footer>
 </body>
 </html>
 

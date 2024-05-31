@@ -1,24 +1,27 @@
 <?php
 session_start();
     require_once '../Dodatki/cookie.php';
-require_once '../Baza Danych/db.php';
+    require_once '../Baza Danych/db.php';
+    $conn->set_charset("utf8");
 
-$conn->set_charset("utf8");
 
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
+    {
+        $uzytkownik = $_SESSION['username'];
 
-if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
-{
-    $uzytkownik = $_SESSION['username'];
-    if ($_SESSION['user_role'] == 1) {
-        require_once '../Dodatki/admin_Header.php';
-    } else {
-        require_once '../Dodatki/Login_Header.php';
+        if (isset($_SESSION['Admin']) && $_SESSION['Admin'] == 1) 
+        {
+            require_once '../Dodatki/admin_Header.php';
+        } 
+        else 
+        {
+            require_once '../Dodatki/Login_Header.php';
+        }
+    }   
+    else 
+    {
+        require_once '../Dodatki/Header.php';
     }
-} 
-else 
-{
-    require_once '../Dodatki/Header.php';
-}
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +33,11 @@ else
     <title>MWN | Muzyka | <?php echo $uzytkownik; ?></title>
 </head>
 <main>
-    <head_section>
+    <div class = "head_section">
         <a href="Utwory.php">Utwory</a>
         <a href="Albumy.php">Albumy</a>
         <a href="Wykonawcy.php">Wykonawcy</a>
-    </head_section>
+    </div>
     <section>
         <div class="con4">
             <?php
@@ -51,7 +54,7 @@ else
 </main>
 <footer>
     <?php
-        require_once '../Dodatki/footer.php';
+        require_once '../Styl/footer.php';
     ?>
 </footer>
 </body>

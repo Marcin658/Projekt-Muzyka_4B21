@@ -4,17 +4,15 @@
     session_start();
 
 
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) 
-    {
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $uzytkownik = $_SESSION['username'];
-        if ($_SESSION['user_role'] == 1) {
+    
+        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
             require_once '../Dodatki/admin_Header.php';
         } else {
             require_once '../Dodatki/Login_Header.php';
         }
-    } 
-    else 
-    {
+    } else {
         require_once '../Dodatki/Header.php';
     }
 ?>
@@ -34,8 +32,10 @@
                 <li><p>Proszę o dobrą ocenę Panie Profesorze</p></li>
             </ul>
         </div>
-        <?php
-            require_once '../Dodatki/footer.php';
-        ?>
+        <footer>
+            <?php
+                require_once '../Styl/footer.php';
+            ?>
+        </footer>
     </body>
 </html>

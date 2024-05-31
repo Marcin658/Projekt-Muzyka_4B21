@@ -78,7 +78,7 @@ if(isset($_POST['login']))
 </div>
 <footer>
     <?php
-        require_once '../Dodatki/footer.php';
+        require_once '../Styl/footer.php';
     ?>
 </footer>
 
