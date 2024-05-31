@@ -35,12 +35,19 @@ li:hover
         text-shadow:0 0 6px #DEE1EC;
     }
 
-head_section{
-    display: flex;
-    align-items: center;
-    align-self: start;
-    width: 100%;
-    height: 5%;
-    background-color: blanchedalmond;
-    gap: 10px;
-}
+    head_section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 2vh;
+        background-color: #163A5F;
+        padding: 10px;
+        list-style-type: none;
+    }
+    
+    head_section a {
+        color: #45EBA5;
+        text-decoration: none;
+        margin: 0 10px;
+    }

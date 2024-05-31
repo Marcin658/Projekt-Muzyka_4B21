@@ -1,10 +1,16 @@
-footer
-{
+footer {
     height: 3vh;
     width: 100%;
-    background-color: #DEE1EC;
+    background-color: #505259;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: end;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    padding-right: 10px; 
+    color: white;
 }
